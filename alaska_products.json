@@ -1,0 +1,27 @@
+{
+  "product_list": [
+    {
+      "tour_type": "p",
+      "id": 56772,
+      "title": "2027년 4월 24일 알래스카 크루즈 NCL [앙코르호] AS- 1팀",
+      "description": null,
+      "min_price": 5940000,
+      "original_price": 5940000,
+      "image": "/media/travelagent/1136/imagecontent/seattle-2609031_1280.jpg",
+      "mobile_image": "/media/travelagent/1136/imagecontent/seattle-2609031_1280_NDgB9Uc.jpg",
+      "badge": "시애틀,NCL,스캐그웨이",
+      "review_count": 0,
+      "star_point": 0,
+      "updated_time": "2026-10-30T00:35:01.645583",
+      "favorites": "N",
+      "use_custom_price_label": 0,
+      "b2b_seller_id": 0,
+      "brief_route_description": null,
+      "member_only": 0,
+      "sold_out": false,
+      "force_expose": false,
+      "representative_price": null
+    }
+  ],
+  "total_count": 1
+}

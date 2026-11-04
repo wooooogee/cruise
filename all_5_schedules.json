@@ -1,0 +1,312 @@
+[
+  {
+    "id": 64814,
+    "title": "2027년 3월 16일 동남아 크루즈 로열 캐리비안 [네비게이터호] KE",
+    "badge": "로얄캐리비안, 페낭, 푸켓",
+    "imgFile": "media_1793770731808_54a79ce1.png",
+    "price": 2970000,
+    "days": "7일 (4박)",
+    "ship": "크루즈",
+    "description": "[ 싱가포르 / 말레이시아 / 태국 ]",
+    "schedules": [
+      {
+        "title": "",
+        "hotel": {
+          "type": 2,
+          "detail_id": 8484359,
+          "description": "",
+          "title": "",
+          "contents": []
+        },
+        "meal": {},
+        "spots": []
+      },
+      {
+        "title": "",
+        "hotel": {},
+        "meal": {},
+        "spots": []
+      },
+      {
+        "title": "",
+        "hotel": {},
+        "meal": {},
+        "spots": []
+      },
+      {
+        "title": "",
+        "hotel": {},
+        "meal": {},
+        "spots": []
+      },
+      {
+        "title": "",
+        "hotel": {},
+        "meal": {},
+        "spots": []
+      },
+      {
+        "title": "",
+        "hotel": {
+          "type": 2,
+          "detail_id": 8484360,
+          "description": "",
+          "title": "",
+          "contents": []
+        },
+        "meal": {},
+        "spots": []
+      },
+      {
+        "title": "",
+        "hotel": {
+          "type": 2,
+          "detail_id": 8484361,
+          "description": "",
+          "title": "",
+          "contents": []
+        },
+        "meal": {},
+        "spots": []
+      }
+    ]
+  },
+  {
+    "id": 58840,
+    "title": "2027년 3월 12일 동남아 크루즈 로열 캐리비안 [네비게이터호] SQ",
+    "badge": "싱가포르, 페낭, 네비게이터",
+    "imgFile": "media_1793770743941_1b3c4393.png",
+    "price": 2970000,
+    "days": "7일 (4박)",
+    "ship": "크루즈",
+    "description": "[ 싱가포르 / 말레이시아 / 태국 ]",
+    "schedules": [
+      {
+        "title": "",
+        "hotel": {},
+        "meal": {},
+        "spots": []
+      },
+      {
+        "title": "",
+        "hotel": {},
+        "meal": {},
+        "spots": []
+      },
+      {
+        "title": "",
+        "hotel": {},
+        "meal": {},
+        "spots": []
+      },
+      {
+        "title": "",
+        "hotel": {},
+        "meal": {},
+        "spots": []
+      },
+      {
+        "title": "",
+        "hotel": {},
+        "meal": {},
+        "spots": []
+      },
+      {
+        "title": "",
+        "hotel": {},
+        "meal": {},
+        "spots": []
+      },
+      {
+        "title": "",
+        "hotel": {},
+        "meal": {},
+        "spots": []
+      }
+    ]
+  },
+  {
+    "id": 65143,
+    "title": "2027년 3월 8일 동남아 크루즈 스타드림 [겐팅드림호] TW",
+    "badge": "3개국, 겐팅드림, 바탐섬",
+    "imgFile": "media_1793770763205_b3c5f14c.png",
+    "price": 2970000,
+    "days": "7일 (5박)",
+    "ship": "크루즈",
+    "description": "[ 싱가포르 / 태국 / 인도네시아 ]",
+    "schedules": [
+      {
+        "title": "",
+        "hotel": {
+          "type": 2,
+          "detail_id": 8555184,
+          "description": null,
+          "title": null,
+          "contents": [
+            {
+              "name": "Dorsett Changi City Singapore   또는 동급의 호텔",
+              "remark": "",
+              "id": 47932,
+              "confirm": "false",
+              "description": "창이 비즈니스 파크 중심부에 위치한 이 싱가포르 호텔은 간이 주방과 편안한 휴식 공간을 갖춘 객실을 제공합니다. 숙소에는 야외 수영장과 24시간 피트니스 센터, 레스토랑이 마련되어 있습니다. 엑스포(Expo) MRT 역 및 창이 시티 포인트 쇼핑몰과 도보 거리로 가깝고, 창이 국제공항은 차로 약 10~15분 거리에 위치해 있습니다. Dorsett Changi City Singapore의 객실은 모던하고 세련된 인테리어와 실용적인 가구를 갖추고 있습니다.",
+              "images": [],
+              "star": 4,
+              "star_name": ""
+            }
+          ]
+        },
+        "meal": {},
+        "spots": []
+      },
+      {
+        "title": "",
+        "hotel": {},
+        "meal": {},
+        "spots": []
+      },
+      {
+        "title": "",
+        "hotel": {},
+        "meal": {},
+        "spots": []
+      },
+      {
+        "title": "",
+        "hotel": {},
+        "meal": {},
+        "spots": []
+      },
+      {
+        "title": "",
+        "hotel": {
+          "type": 2,
+          "detail_id": 8555186,
+          "description": null,
+          "title": null,
+          "contents": [
+            {
+              "name": "BATAM VIEW BEACH RESORT  또는 동급의 호텔",
+              "remark": "",
+              "id": 25320,
+              "confirm": "false",
+              "description": "바탐뷰",
+              "images": [],
+              "star": 4,
+              "star_name": ""
+            }
+          ]
+        },
+        "meal": {},
+        "spots": []
+      },
+      {
+        "title": "",
+        "hotel": {},
+        "meal": {},
+        "spots": []
+      },
+      {
+        "title": "",
+        "hotel": {},
+        "meal": {},
+        "spots": []
+      }
+    ]
+  },
+  {
+    "id": 61741,
+    "title": "『 발코니 』 2027년 2월 26일 한국출발 중국/일본 크루즈 MSC [벨리시마호]",
+    "badge": "상하이, 제주도, 사세보",
+    "imgFile": "media_1793770787057_28605097.png",
+    "price": 2970000,
+    "days": "6일 (5박)",
+    "ship": "크루즈",
+    "description": "[ 대한민국 / 중국 / 일본 ]",
+    "schedules": [
+      {
+        "title": "",
+        "hotel": {},
+        "meal": {},
+        "spots": []
+      },
+      {
+        "title": "",
+        "hotel": {},
+        "meal": {},
+        "spots": []
+      },
+      {
+        "title": "",
+        "hotel": {},
+        "meal": {},
+        "spots": []
+      },
+      {
+        "title": "",
+        "hotel": {},
+        "meal": {},
+        "spots": []
+      },
+      {
+        "title": "",
+        "hotel": {},
+        "meal": {},
+        "spots": []
+      },
+      {
+        "title": "",
+        "hotel": {},
+        "meal": {},
+        "spots": []
+      }
+    ]
+  },
+  {
+    "id": 61730,
+    "title": "『 발코니 』 2027년 2월 8일 한국출발 중국/일본 크루즈 MSC [벨리시마호]",
+    "badge": "국내출발, 17만톤, 대형선박",
+    "imgFile": "media_1793770797725_0f948044.png",
+    "price": 2970000,
+    "days": "6일 (5박)",
+    "ship": "크루즈",
+    "description": "[ 대한민국 / 일본 / 중국 ]",
+    "schedules": [
+      {
+        "title": "",
+        "hotel": {},
+        "meal": {},
+        "spots": []
+      },
+      {
+        "title": "",
+        "hotel": {},
+        "meal": {},
+        "spots": []
+      },
+      {
+        "title": "",
+        "hotel": {},
+        "meal": {},
+        "spots": []
+      },
+      {
+        "title": "",
+        "hotel": {},
+        "meal": {},
+        "spots": []
+      },
+      {
+        "title": "",
+        "hotel": {},
+        "meal": {},
+        "spots": []
+      },
+      {
+        "title": "",
+        "hotel": {},
+        "meal": {},
+        "spots": []
+      }
+    ]
+  }
+]

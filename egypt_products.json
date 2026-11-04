@@ -1,0 +1,49 @@
+{
+  "product_list": [
+    {
+      "tour_type": "p",
+      "id": 64983,
+      "title": "2027년 3월 6일 오천년의 이집트, 나일강 리버크루즈 [크라운 엠페러호] EK 『 리버뷰 』",
+      "description": null,
+      "min_price": 5940000,
+      "original_price": 5940000,
+      "image": "/media/travelagent/1136/imagecontent/룩소_룩소신전.jpg",
+      "mobile_image": "/media/travelagent/1136/imagecontent/룩소_룩소신전_GMvvp9F.jpg",
+      "badge": "나일강,5성선박,이집트",
+      "review_count": 0,
+      "star_point": 0,
+      "updated_time": "2026-11-03T06:43:35.094205",
+      "favorites": "N",
+      "use_custom_price_label": 0,
+      "b2b_seller_id": 0,
+      "brief_route_description": null,
+      "member_only": 0,
+      "sold_out": false,
+      "force_expose": false,
+      "representative_price": null
+    },
+    {
+      "tour_type": "p",
+      "id": 56112,
+      "title": "2026년 11월 29일 5천년의 이집트, 나일강 리버크루즈 [그랜드 선호] QR",
+      "description": null,
+      "min_price": 5940000,
+      "original_price": 5940000,
+      "image": "/media/travelagent/1136/imagecontent/카이로_용량줄임_rkcaM7Y.jpg",
+      "mobile_image": "/media/travelagent/1136/imagecontent/카이로_용량줄임_9fru9Ra.jpg",
+      "badge": "이집트,그랜드 박물관,나일강",
+      "review_count": 0,
+      "star_point": 0,
+      "updated_time": "2026-11-03T02:25:10.412674",
+      "favorites": "N",
+      "use_custom_price_label": 0,
+      "b2b_seller_id": 0,
+      "brief_route_description": null,
+      "member_only": 0,
+      "sold_out": false,
+      "force_expose": false,
+      "representative_price": null
+    }
+  ],
+  "total_count": 2
+}
