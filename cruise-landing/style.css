@@ -582,23 +582,348 @@ b { font-weight: 700; }
 .sheet::backdrop { background: rgba(4, 28, 48, .55); }
 .sheet[open]::backdrop { animation: fade .3s ease; }
 .sheet-box {
+  position: relative;
   padding: 12px 24px calc(22px + env(safe-area-inset-bottom));
   border-radius: 28px 28px 0 0; background: #fff; color: var(--ink);
   animation: sheetup .5s cubic-bezier(.2, .9, .3, 1);
+  max-height: 88dvh;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 .sheet.is-closing .sheet-box { animation: sheetdown .28s ease-in forwards; }
 .sheet.is-closing::backdrop { animation: fade .28s ease-in reverse forwards; }
-.sheet-grab { display: block; width: 40px; height: 4px; margin: 0 auto; border-radius: 2px; background: #dfe6ec; }
+.sheet-grab { display: block; width: 40px; height: 4px; margin: 0 auto 6px; border-radius: 2px; background: #dfe6ec; }
+
+/* 팝업 닫기 버튼 (X표시) */
+.sheet-close {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  background: #f1f5f9;
+  color: #64748b;
+  font-size: 18px;
+  font-weight: 700;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+  transition: background-color .2s, color .2s, transform .15s;
+}
+.sheet-close:hover {
+  background: #e2e8f0;
+  color: var(--ink);
+}
+.sheet-close:active {
+  transform: scale(0.92);
+}
+
 .sheet-ico { margin-top: 14px; font-size: 44px; line-height: 1; animation: lockshake 1s ease .6s; }
 .sheet-tag { display: inline-block; margin-top: 16px; padding: 5px 10px; border-radius: 8px; background: #fff0f0; color: var(--coral); font-size: 13px; font-weight: 800; }
 .sheet-t { margin-top: 10px; font-size: 24px; line-height: 1.4; font-weight: 800; letter-spacing: -.9px; }
 .sheet-s { margin-top: 10px; color: var(--sub); font-size: 15.5px; line-height: 1.6; }
 .sheet-s b { color: var(--coral); font-weight: 700; }
-.sheet-gift { display: flex; align-items: center; gap: 12px; margin-top: 20px; padding: 16px; border-radius: 16px; background: var(--sky); }
-.sheet-gift i { font-style: normal; font-size: 30px; line-height: 1; display: inline-block; animation: wiggle 2.4s ease-in-out 1s infinite; }
-.sheet-gift span { color: var(--mute); font-size: 13.5px; }
-.sheet-gift b { display: block; color: var(--ink); font-size: 17px; font-weight: 800; }
+
+/* 두 개의 분리된 혜택 카드 컨테이너 */
+.sheet-dual-benefits {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+  position: relative;
+}
+.benefit-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 13px 16px;
+  border-radius: 16px;
+  background: #f0f7ff;
+  border: 1.5px solid #bae0fd;
+  text-align: left;
+  transition: transform .2s, box-shadow .2s;
+}
+.benefit-card.is-gift {
+  background: #fff8f1;
+  border-color: #fed7aa;
+}
+.benefit-badge {
+  position: absolute;
+  top: -9px;
+  left: 14px;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 2px 8px;
+  border-radius: 10px;
+  background: #0284c7;
+  color: #fff;
+  line-height: 1.3;
+  letter-spacing: -0.2px;
+  box-shadow: 0 2px 5px rgba(2, 132, 199, 0.25);
+}
+.benefit-badge.is-gift-badge {
+  background: #ea580c;
+  box-shadow: 0 2px 5px rgba(234, 88, 12, 0.25);
+}
+.benefit-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+}
+.benefit-icon {
+  font-size: 26px;
+  line-height: 1;
+  flex-shrink: 0;
+  display: inline-block;
+}
+.benefit-card:first-child .benefit-icon {
+  animation: wiggle 2.8s ease-in-out infinite;
+}
+.benefit-card.is-gift .benefit-icon {
+  animation: wiggle 2.8s ease-in-out 1.4s infinite;
+}
+.benefit-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.benefit-title {
+  font-size: 15.5px;
+  font-weight: 800;
+  color: #0369a1;
+  letter-spacing: -.4px;
+  line-height: 1.35;
+}
+.benefit-card.is-gift .benefit-title {
+  color: #c2410c;
+}
+.benefit-desc {
+  font-size: 12px;
+  color: #64748b;
+  line-height: 1.35;
+  letter-spacing: -.2px;
+}
+
+/* 두 카드 사이의 + 연결 뱃지 */
+.benefit-plus-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: -6px 0;
+  z-index: 2;
+}
+.benefit-plus-divider span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #fff;
+  border: 1.5px solid #cbd5e1;
+  color: #64748b;
+  font-size: 13px;
+  font-weight: 900;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.06);
+}
+
+.sheet-gift-sub {
+  margin-top: 14px;
+  color: #475569;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: -.2px;
+}
+
 .sheet-go { width: 100%; margin-top: 16px; }
+
+/* 혜택 상세 정보 화면 (Step 2) */
+.sheet-view.is-detail {
+  padding-top: 8px;
+  text-align: left;
+}
+.sheet-detail-top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+.sheet-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  border: 0;
+  background: transparent;
+  color: #64748b;
+  font-size: 13.5px;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 4px 6px;
+  border-radius: 6px;
+  transition: color .2s, background-color .2s;
+}
+.sheet-back-btn:hover {
+  color: var(--ink);
+  background: #f1f5f9;
+}
+.sheet-tag-sm {
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: 6px;
+  background: #e0f2fe;
+  color: #0284c7;
+  font-size: 12px;
+  font-weight: 800;
+}
+.sheet-detail-title {
+  font-size: 21px;
+  font-weight: 800;
+  color: var(--ink);
+  line-height: 1.35;
+  letter-spacing: -.6px;
+  margin: 0 0 6px;
+}
+.sheet-detail-desc {
+  font-size: 13.5px;
+  color: #64748b;
+  line-height: 1.5;
+  margin: 0 0 16px;
+  letter-spacing: -.2px;
+}
+.voucher-card {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 12px 14px;
+  margin-bottom: 10px;
+}
+.voucher-card-title {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--ink);
+  margin: 0 0 8px;
+}
+.voucher-icon { font-size: 16px; }
+.voucher-tag-pill {
+  margin-left: auto;
+  display: inline-block;
+  padding: 2px 7px;
+  border-radius: 6px;
+  background: #e0f2fe;
+  color: #0284c7;
+  font-size: 11.5px;
+  font-weight: 800;
+}
+.voucher-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.voucher-list li {
+  font-size: 13px;
+  color: #334155;
+  line-height: 1.4;
+  position: relative;
+  padding-left: 14px;
+}
+.voucher-list li::before {
+  content: "•";
+  position: absolute;
+  left: 2px;
+  color: #0284c7;
+  font-weight: bold;
+}
+.voucher-list li.voucher-highlight {
+  color: #0369a1;
+  font-weight: 700;
+}
+.voucher-list li.voucher-highlight b {
+  color: #0284c7;
+}
+.voucher-notice {
+  font-size: 11.5px;
+  color: #64748b;
+  line-height: 1.4;
+  margin: 7px 0 0;
+  padding-top: 7px;
+  border-top: 1px dashed #cbd5e1;
+}
+.voucher-dest-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 5px;
+}
+.dest-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #ffffff;
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 1px solid #edf2f7;
+}
+.dest-country {
+  display: inline-block;
+  min-width: 44px;
+  padding: 2px 6px;
+  background: #f0fdf4;
+  color: #15803d;
+  font-size: 11.5px;
+  font-weight: 800;
+  border-radius: 4px;
+  text-align: center;
+  flex-shrink: 0;
+}
+.dest-cities {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #334155;
+}
+.sheet-detail-btns {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center;
+  gap: 8px;
+  margin-top: 14px;
+  width: 100%;
+}
+.sheet-detail-btns .btn {
+  height: 48px;
+  padding: 0 6px;
+  border-radius: 14px;
+  font-size: 14.5px;
+  font-weight: 700;
+  letter-spacing: -0.4px;
+  white-space: nowrap;
+}
+.sheet-view-cruise-btn {
+  flex: 1 1 44%;
+  background: #f1f5f9;
+  color: #475569;
+  border: 1px solid #cbd5e1;
+  box-shadow: none;
+}
+.sheet-view-cruise-btn:hover {
+  background: #e2e8f0;
+  color: var(--ink);
+}
+.sheet-apply-btn {
+  flex: 1 1 56%;
+  width: auto !important;
+}
+
 html.is-locked { overflow: hidden; }
 @keyframes sheetup { from { transform: translateY(100%); } }
 @keyframes sheetdown { to { transform: translateY(100%); } }

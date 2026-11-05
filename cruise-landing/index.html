@@ -375,15 +375,112 @@
 <dialog class="sheet" id="welcome" aria-labelledby="welcome-t">
   <div class="sheet-box" tabindex="-1" autofocus>
     <span class="sheet-grab" aria-hidden="true"></span>
-    <p class="sheet-ico" aria-hidden="true">🔒</p>
-    <p class="sheet-tag">비공개 혜택</p>
-    <p class="sheet-t" id="welcome-t">광고로 오신 분께만<br>열린 페이지예요</p>
-    <p class="sheet-s"><br><b>이 페이지에서 상담 신청해야 할인이 적용돼요.</b></p>
-    <div class="sheet-gift">
-      <i aria-hidden="true">🎁</i>
-      <span><b>가입 시 최대 60만원 할인</b></span>
+    <button type="button" class="sheet-close" aria-label="팝업 닫기" data-sheet-close>✕</button>
+
+    <!-- 스텝 1: 메인 혜택 안내 -->
+    <div class="sheet-view" id="welcomeStep1">
+      <p class="sheet-ico" aria-hidden="true">🔒</p>
+      <p class="sheet-tag">비공개 혜택</p>
+      <p class="sheet-t" id="welcome-t">광고로 오신 분께만<br>열린 페이지예요</p>
+      <p class="sheet-s"><br><b>이 페이지에서 상담 신청해야 할인이 적용돼요.</b></p>
+      <!-- 두 개의 분리된 특별 혜택 카드 -->
+      <div class="sheet-dual-benefits">
+        <!-- 혜택 1: 최대 60만원 할인 -->
+        <div class="benefit-card">
+          <span class="benefit-badge">혜택 1</span>
+          <div class="benefit-content">
+            <span class="benefit-icon" aria-hidden="true">💳</span>
+            <div class="benefit-text">
+              <strong class="benefit-title">가입 시 최대 60만원 할인</strong>
+              <span class="benefit-desc">크루즈 여행 부담을 덜어드리는 특별 할인</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 플러스 연결 뱃지 -->
+        <div class="benefit-plus-divider" aria-hidden="true">
+          <span>+</span>
+        </div>
+
+        <!-- 혜택 2: 동남아 여행 바우처 -->
+        <div class="benefit-card is-gift">
+          <span class="benefit-badge is-gift-badge">혜택 2</span>
+          <div class="benefit-content">
+            <span class="benefit-icon" aria-hidden="true">🎁</span>
+            <div class="benefit-text">
+              <strong class="benefit-title">동남아 여행 바우처 증정</strong>
+              <span class="benefit-desc">호텔·식사·가이드 포함 동남아 여행 바우처</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p class="sheet-gift-sub">할인 혜택에 여행 선물까지 더했습니다.</p>
+      <button class="btn btn-main sheet-go" type="button" id="btnWelcomeDetails" data-track="popup_cta">혜택 확인하기</button>
     </div>
-    <button class="btn btn-main sheet-go" type="button" data-track="popup_cta">혜택 확인하기</button>
+
+    <!-- 스텝 2: 동남아 여행 바우처 & 여행지 상세 정보 -->
+    <div class="sheet-view is-detail" id="welcomeStep2" hidden>
+      <div class="sheet-detail-top">
+        <button type="button" class="sheet-back-btn" id="btnWelcomeBack" aria-label="이전 화면으로">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 19l-7-7 7-7"/></svg>
+          <span>이전</span>
+        </button>
+        <span class="sheet-tag-sm">특별 증정 혜택</span>
+      </div>
+
+      <h3 class="sheet-detail-title">동남아 여행 바우처</h3>
+      <p class="sheet-detail-desc">바우처 1장으로 원하는 동남아 여행지를 선택해 패키지 여행을 떠나실 수 있습니다.</p>
+
+      <!-- 이용권 혜택 안내 -->
+      <div class="voucher-card">
+        <h4 class="voucher-card-title">
+          <span class="voucher-icon">🎟️</span>
+          <span>이용권 포함 혜택</span>
+          <span class="voucher-tag-pill">2인 사용 가능</span>
+        </h4>
+        <ul class="voucher-list">
+          <li class="voucher-highlight"><b>2인 사용 가능</b> (바우처 1장 기준)</li>
+          <li><b>전 일정 4성급 호텔 숙박</b> (3박)</li>
+          <li><b>전 일정 식사 제공</b> (호텔식 및 현지 특식)</li>
+          <li><b>전용 차량 이동 &amp; 전담 한국어 가이드</b></li>
+          <li><b>주요 관광지 입장료 &amp; 여행자보험 전원 가입</b></li>
+        </ul>
+        <p class="voucher-notice">※ 왕복 항공권 및 현지 팁/샌딩비 별도 (마일리지·특가 항공권 자유 발권)</p>
+      </div>
+
+      <!-- 대표 여행지 안내 -->
+      <div class="voucher-card">
+        <h4 class="voucher-card-title">
+          <span class="voucher-icon">🌴</span>
+          <span>이용 가능 대표 여행지</span>
+        </h4>
+        <div class="voucher-dest-grid">
+          <div class="dest-item">
+            <span class="dest-country">베트남</span>
+            <span class="dest-cities">다낭 · 나트랑/달랏 · 푸꾸옥</span>
+          </div>
+          <div class="dest-item">
+            <span class="dest-country">태국</span>
+            <span class="dest-cities">방콕 &amp; 파타야</span>
+          </div>
+          <div class="dest-item">
+            <span class="dest-country">필리핀</span>
+            <span class="dest-cities">세부 · 보홀</span>
+          </div>
+          <div class="dest-item">
+            <span class="dest-country">라오스</span>
+            <span class="dest-cities">비엔티안 &amp; 방비엥</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 하단 액션 버튼들 -->
+      <div class="sheet-detail-btns">
+        <button class="btn btn-sub sheet-view-cruise-btn" type="button" data-sheet-close data-track="popup_view_cruise">크루즈 내용보기</button>
+        <button class="btn btn-main sheet-apply-btn" type="button" id="btnWelcomeApply" data-track="popup_apply_click">혜택받고 신청하기</button>
+      </div>
+    </div>
   </div>
 </dialog>
 
@@ -1710,7 +1807,7 @@
 
 <nav class="dock" aria-label="빠른 상담">
   <a class="dock-call" href="tel:01059452153" data-track="call_dock">전화 상담</a>
-  <a class="dock-apply" href="#apply" data-track="cta_dock">최대 60만 원 할인 신청</a>
+  <a class="dock-apply" href="#apply" data-track="cta_dock">혜택받고 신청하기</a>
 </nav>
 
 <script src="main.js" defer></script>

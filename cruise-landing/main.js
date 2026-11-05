@@ -165,6 +165,16 @@
   const sheet = $('#welcome');
   if (sheet && typeof sheet.showModal === 'function') {
     const root = document.documentElement;
+    const step1 = $('#welcomeStep1', sheet);
+    const step2 = $('#welcomeStep2', sheet);
+    const box = $('.sheet-box', sheet);
+
+    const resetSteps = () => {
+      if (step1) step1.hidden = false;
+      if (step2) step2.hidden = true;
+      if (box) box.scrollTop = 0;
+    };
+
     const close = (then) => {
       if (!sheet.open || sheet.classList.contains('is-closing')) return;
       sheet.classList.add('is-closing');
@@ -172,12 +182,58 @@
         sheet.classList.remove('is-closing');
         sheet.close();
         root.classList.remove('is-locked');
+        resetSteps();
         if (then) then();
       }, reduceMotion ? 0 : 280);
     };
-    sheet.addEventListener('cancel', (e) => { e.preventDefault(); close(); track('popup_close'); }); // ESC·뒤로 제스처
-    sheet.addEventListener('click', (e) => { if (e.target === sheet) { close(); track('popup_close'); } }); // 어두운 바깥 누르기
-    $('.sheet-go', sheet).addEventListener('click', () => close()); // 혜택 확인하기: 창만 닫고 그 자리 그대로
+
+    // ESC·뒤로 제스처
+    sheet.addEventListener('cancel', (e) => { e.preventDefault(); close(); track('popup_close'); });
+    // 어두운 바깥 누르기
+    sheet.addEventListener('click', (e) => { if (e.target === sheet) { close(); track('popup_close'); } });
+
+    // X표시 닫기 버튼
+    $$('[data-sheet-close]', sheet).forEach((btn) => {
+      btn.addEventListener('click', () => { close(); track('popup_close_btn'); });
+    });
+
+    // 혜택 확인하기 버튼: 상세 혜택 및 여행지 정보(Step 2) 화면으로 전환
+    const btnDetails = $('#btnWelcomeDetails', sheet);
+    if (btnDetails) {
+      btnDetails.addEventListener('click', () => {
+        if (step1 && step2) {
+          step1.hidden = true;
+          step2.hidden = false;
+          if (box) box.scrollTop = 0;
+          track('popup_benefit_view');
+        }
+      });
+    }
+
+    // Step 2 이전 버튼
+    const btnBack = $('#btnWelcomeBack', sheet);
+    if (btnBack) {
+      btnBack.addEventListener('click', () => {
+        resetSteps();
+      });
+    }
+
+    // Step 2 상담 신청하기 버튼: 모달 닫고 상담 신청 폼(#apply)으로 이동
+    const btnApply = $('#btnWelcomeApply', sheet);
+    if (btnApply) {
+      btnApply.addEventListener('click', () => {
+        close(() => {
+          const target = $('#apply');
+          if (target) {
+            target.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth' });
+            const firstInput = $('input[name="name"]', target) || $('input', target);
+            if (firstInput) setTimeout(() => firstInput.focus(), 350);
+          }
+        });
+        track('popup_apply_click');
+      });
+    }
+
     // 새로고침하면 브라우저가 이전 스크롤 위치로 돌아가므로, 항상 맨 위에서 팝업을 보여줌
     if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
     if (location.hash) history.replaceState(null, '', location.pathname + location.search);
